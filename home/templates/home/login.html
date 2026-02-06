@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
         body {
             background-image: url('/static/sba.jpg'); /* Background image */
@@ -139,10 +140,9 @@
                 // Add padding to password field to make room for icon
                 passwordField.style.paddingRight = '40px';
                 
-                // Create eye icon
-                const eyeIcon = document.createElement('span');
-                eyeIcon.className = 'password-toggle';
-                eyeIcon.innerHTML = '👁️';
+                // Create eye icon using Bootstrap Icons
+                const eyeIcon = document.createElement('i');
+                eyeIcon.className = 'bi bi-eye-fill password-toggle';
                 eyeIcon.setAttribute('title', 'Show password');
                 wrapper.appendChild(eyeIcon);
                 
@@ -150,11 +150,11 @@
                 eyeIcon.addEventListener('click', function() {
                     if (passwordField.type === 'password') {
                         passwordField.type = 'text';
-                        eyeIcon.innerHTML = '🙈';
+                        eyeIcon.className = 'bi bi-eye-slash-fill password-toggle';
                         eyeIcon.setAttribute('title', 'Hide password');
                     } else {
                         passwordField.type = 'password';
-                        eyeIcon.innerHTML = '👁️';
+                        eyeIcon.className = 'bi bi-eye-fill password-toggle';
                         eyeIcon.setAttribute('title', 'Show password');
                     }
                 });
