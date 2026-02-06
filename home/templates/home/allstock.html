@@ -17,9 +17,9 @@
             flex-direction: row; /* Change to row to place sidebar and content side-by-side */
         }
         .sidebar {
-            width: 250px;
-            background-color: #9bf39b;
-            color: black;
+            width: 200px;
+            background-color: #6c6d6e;
+            color: white;
             padding-top: 20px;
             position: fixed;
             height: 100%;
@@ -53,7 +53,7 @@
 
         .logo-text span {
             font-size: 0.8em;
-            color: black;
+            color: white;
         }
 
         .menu-item {
@@ -61,20 +61,20 @@
             align-items: center;
             padding: 10px 20px;
             text-decoration: none;
-            color:black;
+            color: white;
             margin-bottom: 5px;
             transition: background-color 0.3s ease;
         }
 
         .menu-item:hover {
-            background-color: #1b5e20;
+            background-color: #5a5b5c;
         }
 
         .menu-item svg {
             width: 20px;
             height: 20px;
             margin-right: 10px;
-            fill: black;
+            fill: white;
         }
         .content {
             flex-grow: 1;
@@ -199,10 +199,10 @@
             <span>All receipts</span>
         </a><br>
         {% if user.is_authenticated %}
-        <form action="{% url 'logout' %}" method="POST">
+        <form action="{% url 'logout' %}" method="POST" style="margin-top: 30px;">
             {% csrf_token %}
-            <button type="submit" class="menu-item" style="background: none; border: none; color: black; cursor: pointer; padding: 10px 20px; margin-bottom: 5px; display: flex; align-items: center; text-decoration: none;">
-                <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; margin-right: 10px; fill: black;">
+            <button type="submit" class="menu-item" style="background: none; border: none; color: white; cursor: pointer; padding: 10px 20px; margin-bottom: 5px; display: flex; align-items: center; text-decoration: none; width: 100%;">
+                <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; margin-right: 10px; fill: white;">
                     <path fill="currentColor" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
                 </svg>
                 <span>Logout</span>

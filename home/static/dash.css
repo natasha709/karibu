@@ -6,7 +6,7 @@ body {
 }
 
 .sidebar {
-    width: 250px;
+    width: 200px;
     height: 100vh;
     background-color: #6c6d6e; /* Gray to match footer */
     padding-top: 20px;
