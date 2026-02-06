@@ -20,6 +20,17 @@ DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1')
 # Allowed hosts (Railway will set your domain automatically)
 ALLOWED_HOSTS = ['*']
 
+# CSRF trusted origins for Railway deployment
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.railway.app',
+    'https://*.up.railway.app',
+]
+
+# If you have a custom domain, add it here
+RAILWAY_DOMAIN = os.getenv('RAILWAY_PUBLIC_DOMAIN')
+if RAILWAY_DOMAIN:
+    CSRF_TRUSTED_ORIGINS.append(f'https://{RAILWAY_DOMAIN}')
+
 
 # Application definition
 

@@ -74,8 +74,6 @@
             transition: background-color 0.3s ease; /* Smooth hover transition */
         }
 
-
-
         .signup-link {
             color: #6c757d; /* Muted link color */
             margin-top: 30px; /* More space above the link */
@@ -90,6 +88,26 @@
 
         .signup-link a:hover {
             text-decoration: underline; /* Add underline on hover */
+        }
+
+        /* Password toggle styles */
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #6c757d;
+            font-size: 1.2rem;
+            user-select: none;
+        }
+
+        .password-toggle:hover {
+            color: #495057;
         }
     </style>
 </head>
@@ -106,5 +124,42 @@
             </div>
         </form>
     </div>
+
+    <script>
+        // Add eye icon to password field after page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordField = document.querySelector('input[type="password"]');
+            if (passwordField) {
+                // Wrap password field in a container
+                const wrapper = document.createElement('div');
+                wrapper.className = 'password-wrapper';
+                passwordField.parentNode.insertBefore(wrapper, passwordField);
+                wrapper.appendChild(passwordField);
+                
+                // Add padding to password field to make room for icon
+                passwordField.style.paddingRight = '40px';
+                
+                // Create eye icon
+                const eyeIcon = document.createElement('span');
+                eyeIcon.className = 'password-toggle';
+                eyeIcon.innerHTML = '👁️';
+                eyeIcon.setAttribute('title', 'Show password');
+                wrapper.appendChild(eyeIcon);
+                
+                // Toggle password visibility
+                eyeIcon.addEventListener('click', function() {
+                    if (passwordField.type === 'password') {
+                        passwordField.type = 'text';
+                        eyeIcon.innerHTML = '🙈';
+                        eyeIcon.setAttribute('title', 'Hide password');
+                    } else {
+                        passwordField.type = 'password';
+                        eyeIcon.innerHTML = '👁️';
+                        eyeIcon.setAttribute('title', 'Show password');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
